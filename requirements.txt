@@ -1,0 +1,15 @@
+transformers
+torch
+langchain
+openai
+python-dotenv
+requests
+streamlit
+langchain-community
+tf-keras
+qwen-vl-utils
+accelerate
+soundfile
+peft
+backoff
+openai
