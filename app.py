@@ -64,7 +64,7 @@ def generate_text_from_image(url: str) -> str:
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": "Extract the main features from this image: describe objects, colors, and text if any in single paragraph."},
+                    {"type": "text", "text": "Extract the main features from this image: describe objects, colors, and text if any in paragraph. If it is a text, just extract the text."},
                     {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
                 ]
             }
@@ -152,7 +152,7 @@ def main() -> None:
         bytes_data: Any = uploaded_file.getvalue()
         with open(uploaded_file.name, "wb") as file:
             file.write(bytes_data)
-        st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+        st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
         progress_bar(100)
         scenario: str = generate_text_from_image(uploaded_file.name)
         # story: str = generate_story_from_text(scenario)
